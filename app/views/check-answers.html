@@ -1,0 +1,196 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Check your answers – {{ serviceName }}
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+
+      <h1 class="govuk-heading-xl">Check your answers</h1>
+
+      <h2 class="govuk-heading-m">Your details</h2>
+
+      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Region
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['region'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a href="/region">
+              Change
+              <span class="govuk-visually-hidden"> letter</span>
+            </a>
+          </dd>
+        </div>
+      </dl>
+
+      <h2 class="govuk-heading-m">Your energy details</h2>
+
+      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Government Letter
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['letter'] | capitalize }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a href="/letter">
+              Change
+              <span class="govuk-visually-hidden"> letter</span>
+            </a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Electricity bill
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['name-on-bill'] | capitalize }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a href="/name-on-bill">
+              Change
+              <span class="govuk-visually-hidden"> name on bill</span>
+            </a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Electricity Supplier
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['electricity-supplier'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a href="/electricity-supplier">
+              Change
+              <span class="govuk-visually-hidden"> electricity supplier</span>
+            </a>
+          </dd>
+        </div>
+      </dl>
+
+      <h2 class="govuk-heading-m">Your benefit details</h2>
+
+      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Benefits
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {% for name in data['benefits'] %}
+              {{ name }}{% if not (loop.last) %}, <br/>{% endif %}
+            {% endfor %}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a href="/benefits">
+              Change
+              <span class="govuk-visually-hidden"> benefits</span>
+            </a>
+          </dd>
+        </div>
+        {% if (data['household-size']) %}
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Household
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['household-size[adult]'] | default(0) }} Adults <br/>
+            {{ data['household-size[children]'] | default(0) }} Children
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a href="/household-occupants">
+              Change
+              <span class="govuk-visually-hidden"> household size</span>
+            </a>
+          </dd>
+        </div>
+        {% endif %}
+        {% if (data['household-income']) %}
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Annual Income
+          </dt>
+          <dd class="govuk-summary-list__value">
+            &pound;{{ data['household-income'] | localizedNumber }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a href="/household-income">
+              Change
+              <span class="govuk-visually-hidden"> income</span>
+            </a>
+          </dd>
+        </div>
+        {% endif %}
+      </dl>
+
+      <h2 class="govuk-heading-m">Your property details</h2>
+
+      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Property type
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['property-type'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a href="/property-type">
+              Change
+              <span class="govuk-visually-hidden"> property type</span>
+            </a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Age of property
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['property-age'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a href="/property-age">
+              Change
+              <span class="govuk-visually-hidden"> age of property</span>
+            </a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Size of property
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['property-size'] }} square meters
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a href="/property-size">
+              Change
+              <span class="govuk-visually-hidden"> size of property</span>
+            </a>
+          </dd>
+        </div>
+      </dl>
+
+      <form action="/answer-validate" method="post" novalidate>
+
+        <input type="hidden" name="answers-checked" value="true">
+
+        <button type="submit" class="govuk-button" data-module="govuk-button">
+          Continue
+        </button>
+
+      </form>
+
+    </div>
+  </div>
+{% endblock %}

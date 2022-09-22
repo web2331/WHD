@@ -1,0 +1,74 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Name on electricity bill – {{ serviceName }}
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="/bill-name-validate" method="post">
+
+        {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+        {{ govukRadios({
+          idPrefix: "name-on-bill",
+          name: "name-on-bill",
+          fieldset: {
+            legend: {
+              text: "Whose name is on your electricity bill?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          hint: {
+            classes: "app-hint",
+            html: "Use the bill that includes 21 August 2022. A partner is either: 
+            <ul class=\"govuk-list govuk-list--bullet\">
+              <li>your husband, wife or civil partner - if you live with them</li> 
+              <li>someone you live with as a couple, without being married or in a civil partnership</li>
+            </ul>"
+          },          
+          items: [
+            {
+              value: "my name",
+              text: "My Name",
+              checked: checked("name-on-bill", "my name")
+            },
+            {
+              value: "my partner's name",
+              text: "My partner's name",
+              checked: checked("name-on-bill", "my partner's name")
+            },
+            {
+              value: "my landlord's name",
+              text: "My landlord's name",
+              checked: checked("name-on-bill", "my landlord's name")
+            },
+            {
+              value: "somebody-else",
+              text: "Somebody else's name",
+              checked: checked("name-on-bill", "somebody-else")
+            },
+            {
+              value: "dont-know",
+              text: "I don't know",
+              checked: checked("name-on-bill", "dont-know")
+            }
+          ]
+        }) }}
+
+        <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

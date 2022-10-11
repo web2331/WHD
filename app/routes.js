@@ -125,7 +125,7 @@ router.post('/property-type-validate', function (req, res) {
 
   if (data == "Park home") {
     res.redirect('/ineligible-property-parkhome')
-  } else if (data == "Other") { 
+  } else if (data == "Other") {
     res.redirect('/ineligible-property')
   } else {
     res.redirect('/property-age')
@@ -137,7 +137,7 @@ router.post('/answer-validate', function (req, res) {
 
   var data = req.session.data['property-type']
 
-  if (data == "Bungalow") {
+  if (data == "Detached house") {
     res.redirect('/eligible-unqualified')
   } else {
     res.redirect('/eligible-qualified')

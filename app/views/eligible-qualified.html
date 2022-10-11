@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Probably eligible, contat us - {{ serviceName }}
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      
+      {% from "govuk/components/panel/macro.njk" import govukPanel %}
+
+      {{ govukPanel({
+        titleText: "Please wait for a letter"
+      }) }}
+
+      <p>
+        Based on the answer you have given you probably qualify for this year's Warm Home Discount.
+      </p>
+
+      <p>
+        We will send letters to eligible households between November and mid-January
+        explaining how you can claim the Warm Home Discount.
+      </p>
+
+      <p>If you have not received a letter by mid-January 2023, please call us on XXXXXX.</p>
+
+      <h2 class="govuk-heading-m">What to do next</h2>
+
+      {% include "includes/eligiblity-next-list.html" %}
+
+    </div>
+  </div>
+
+{% endblock %}

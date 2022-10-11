@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-  Probably ineligible – {{ serviceName }}
+  Ineligible property type – {{ serviceName }}
 {% endblock %}
 
 {% block beforeContent %}
@@ -16,19 +16,14 @@
       {% from "govuk/components/panel/macro.njk" import govukPanel %}
 
       {{ govukPanel({
-        titleText: "You are probably not eligible for the Warm Home Discount "
+        titleText: "You cannot claim the Warm Home Discount this year"
       }) }}
 
-      <p>Based on the answers you have provided you probably do not qualify.</p>
+      <p>Unfortunately, you do not qualify because only houses and flats are eligible for the Warm Home Discount scheme.</p>
 
       <h2 class="govuk-heading-m">What to do next</h2>
 
-      <p>
-        If you think you are eligible, you can call the helpline on XXXXX to provide alternative data using an Energy Performance Certificate (EPC).
-        If an EPC is not available, the helpline can point to further advice and support.
-      </p>
-
-      <p><a href="https://www.citizensadvice.org.uk/">Citizens Advice</a> can help you find out about other benefits, grants or other forms of help which may be available in your area.  </p>
+      {% include "includes/eligiblity-next-list.html" %}
 
     </div>
   </div>

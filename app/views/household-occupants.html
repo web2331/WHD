@@ -20,7 +20,7 @@
         
         {% call govukFieldset({
           legend: {
-            text: "Tell us how many people live in your household",
+            text: "How many people were living in your household on 21 August 2022?",
             classes: "govuk-fieldset__legend--l",
             isPageHeading: true
           }
@@ -31,13 +31,24 @@
             name: "household-size[adult]",
             classes: "govuk-input--width-3",
             suffix: {
-              text: "Adults"
+              text: "Adults (16 and over, and not in full-time secondary education)"
             },
             spellcheck: false,
             hint: {
-              text: "Only include people who were living in your household on 21 August 2022."
+              text: "Only include people who were living in your home, do not include any guests who may have been visiting."
             },
             value: data['household-size[adult]']          
+          }) }}
+
+          {{ govukInput({
+            id: "household-size",
+            name: "household-size[young_people]",
+            classes: "govuk-input--width-3",
+            suffix: {
+              text: "Young people (19 and under, and in full-time secondary education)"
+            },
+            spellcheck: false,
+            value: data['household-size[young_people]']
           }) }}
 
           {{ govukInput({
@@ -45,7 +56,7 @@
             name: "household-size[children]",
             classes: "govuk-input--width-3",
             suffix: {
-              text: "Children"
+              text: "Children (15 and under)"
             },
             spellcheck: false,
             value: data['household-size[children]']
@@ -66,7 +77,15 @@
             "numericality": {
               "message": "^Household size must be a number"
             }
-          },	
+          },
+          "household-size[young_people]": {
+            "presence": {
+              "message": "^Enter the number of young people"
+            },
+            "numericality": {
+              "message": "^Household size must be a number"
+            }
+          },
           "household-size[children]": {
             "presence": {
               "message": "^Enter the number of children"

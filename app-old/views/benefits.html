@@ -1,0 +1,98 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Benefits – {{ serviceName }}
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="/benefits-validate" method="post">
+
+        {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+
+        {{ govukCheckboxes({
+          idPrefix: "benefits",
+          name: "benefits",
+          fieldset: {
+            legend: {
+              text: "Tell us which benefits you receive",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          hint: {
+            text: "Only include benefits you were receiving on 21 August 2022."
+          },
+          items: [
+            {
+              value: "Income-related Employment and Support Allowance",
+              text: "Income-related Employment and Support Allowance",
+              checked: checked("benefits", "Income-related Employment and Support Allowance")
+            },
+            {
+              value: "Income based Jobseeker Allowance",
+              text: "Income based Jobseeker Allowance",
+              checked: checked("benefits", "Income based Jobseeker Allowance")
+            },
+            {
+              value: "Income Support",
+              text: "Income Support",
+              checked: checked("benefits", "Income Support")
+            },
+            {
+              value: "Universal Credit",
+              text: "Universal Credit",
+              checked: checked("benefits", "Universal Credit")
+            },
+            {
+              value: "Housing Benefit",
+              text: "Housing Benefit",
+              checked: checked("benefits", "Housing Benefit")
+            },
+            {
+              value: "Pension Credit Savings Credit",
+              text: "Pension Credit Savings Credit",
+              checked: checked("benefits", "Pension Credit Savings Credit")
+            },
+            {
+              value: "Pension Credit Guarantee Credit",
+              text: "Pension Credit Guarantee Credit",
+              checked: checked("benefits", "Pension Credit Guarantee Credit")
+            },
+            {
+              value: "Child Tax Credit",
+              text: "Child Tax Credit",
+              checked: checked("benefits", "Child Tax Credit")
+            },
+            {
+              value: "Working Tax Credit",
+              text: "Working Tax Credit",
+              checked: checked("benefits", "Working Tax Credit")
+            },
+            {
+              divider: ""
+            },            
+            {
+              value: "none",
+              text: "None of the above",
+              checked: checked("benefits", "none"),
+              behaviour: "exclusive"              
+            }
+          ]
+        }) }}
+
+        <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

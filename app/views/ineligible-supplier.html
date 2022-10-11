@@ -16,14 +16,14 @@
       {% from "govuk/components/panel/macro.njk" import govukPanel %}
 
       {{ govukPanel({
-        titleText: "You are not eligible for the Warm Home Discount"
+        titleText: "Your supplier does not offer the Warm Home Discount"
       }) }}
 
-      <p>You do not qualify because your electricity supplier is not taking part in the Warm Home Discount scheme.</p>
+      <p>Unfortunately, you cannot receive the Warm Home Discount this year because your electricity supplier is not taking part in the scheme.</p>
 
       <h2 class="govuk-heading-m">What to do next</h2>
 
-      <p><a href="https://www.citizensadvice.org.uk/">Citizens Advice</a> can help you find out about other benefits, grants or other forms of help which may be available in your area.  </p> 
+      {% include "includes/eligiblity-next-list.html" %}
 
     </div>
   </div>

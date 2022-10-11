@@ -11,7 +11,7 @@
     <div class="govuk-grid-column-two-thirds">
       <h1 class="govuk-heading-xl">
         WHD Eligibility Checker Prototype
-        <span class="govuk-caption-xl">Version 1.0</span>
+        <span class="govuk-caption-xl">Version 2.1</span>
       </h1>
       <p>
         Prototype of the Warm Home Discount Eligibility Checker for BEIS built using the GDS prototyping toolkit.
@@ -28,7 +28,10 @@
 
           <ul>
             <li>
-              <a href="/ineligible-region">Ineligible due to location</a>
+              <a href="/ineligible-region-ni">Ineligible due to location - Northern Ireland</a>
+            </li>
+            <li>
+              <a href="/ineligible-region">Ineligible due to location - Scotland</a>
             </li>
           </ul>
         </li>
@@ -42,6 +45,9 @@
             <li>
               <a href="/eligible-letter-code">Eligible due to letter code</a>
             </li>
+            <li>
+              <a href="/eligible-letter-advice">Eligible - Follow advice</a>
+            </li>
           </ul>
         </li>
         <li>
@@ -51,10 +57,13 @@
             <li>
               <a href="/ineligible-bill-name">Ineligible due to wrong name on bill</a>
             </li>
+            <li>
+              <a href="/ineligible-bill-name-landlord">Ineligible due to wrong name on bill - landlord</a>
+            </li>
           </ul>
         </li>
         <li>
-          <a href="/electricity-supplier">Electricity Supplier</a>
+          <a href="/electricity-supplier">Electricity supplier</a>
 
           <ul>
             <li>
@@ -79,12 +88,30 @@
               <a href="/ineligible-benefits">Ineligible - Not on benefits</a>
             </li>
             <li>
-              <a href="/eligible-contact">Eligible</a>
+              <a href="/eligible-contact">Eligible - You will be contacted</a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a href="/epc">EPC certificate</a>
+
+          <ul>
+            <li>
+              <a href="/ineligible-epc">Ineligible - No EPC certificate</a>
             </li>
           </ul>
         </li>
         <li>
           <a href="/property-type">Property Type</a>
+
+          <ul>
+            <li>
+              <a href="/ineligible-property-parkhome">Ineligible - Park home</a>
+            </li>
+            <li>
+              <a href="/ineligible-property">Ineligible - Other</a>
+            </li>
+          </ul>
         </li>
         <li>
           <a href="/property-age">Property Age</a>
@@ -97,10 +124,10 @@
 
           <ul>
             <li>
-              <a href="/ineligible-property">Probably ineligible</a>
+              <a href="/eligible-unqualified">Probably ineligible</a>
             </li>
             <li>
-              <a href="/eligible-property">Probably eligible</a>
+              <a href="/eligible-qualified">Probably eligible</a>
             </li>
           </ul>
         </li>
@@ -111,6 +138,9 @@
       <ul class="govuk-list govuk-list--bullet">
         <li>
           Version 1.0 - 22/09/2022 - Initial deployment of prototype
+        </li>
+        <li>
+          Version 2.1 - 22/09/2022 - Content updates, supplier list update, EPC page added, all endpoints updated
         </li>
       </ul>
     </div>

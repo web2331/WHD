@@ -38,6 +38,11 @@ module.exports = function (env) {
 
   ------------------------------------------------------------------ */
 
+  filters.localizedNumber = function(num) {
+    let numb = parseInt(num);
+    return (numb ? numb.toLocaleString('en-GB', {maximumFractionDigits:0}) : numb)
+  }
+
   /* ------------------------------------------------------------------
     keep the following line to return your filters to the app
   ------------------------------------------------------------------ */

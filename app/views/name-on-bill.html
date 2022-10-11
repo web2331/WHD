@@ -16,53 +16,57 @@
       <form class="form" action="/bill-name-validate" method="post">
 
         {% from "govuk/components/radios/macro.njk" import govukRadios %}
+        {% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
 
-        {{ govukRadios({
-          idPrefix: "name-on-bill",
-          name: "name-on-bill",
-          fieldset: {
-            legend: {
-              text: "Whose name is on your electricity bill?",
-              isPageHeading: true,
-              classes: "govuk-fieldset__legend--l"
-            }
-          },
-          hint: {
-            classes: "app-hint",
-            html: "Use the bill that includes 21 August 2022. A partner is either: 
-            <ul class=\"govuk-list govuk-list--bullet\">
-              <li>your husband, wife or civil partner - if you live with them</li> 
-              <li>someone you live with as a couple, without being married or in a civil partnership</li>
-            </ul>"
-          },          
-          items: [
-            {
-              value: "my name",
-              text: "My Name",
-              checked: checked("name-on-bill", "my name")
-            },
-            {
-              value: "my partner's name",
-              text: "My partner's name",
-              checked: checked("name-on-bill", "my partner's name")
-            },
-            {
-              value: "my landlord's name",
-              text: "My landlord's name",
-              checked: checked("name-on-bill", "my landlord's name")
-            },
-            {
-              value: "somebody-else",
-              text: "Somebody else's name",
-              checked: checked("name-on-bill", "somebody-else")
-            },
-            {
-              value: "dont-know",
-              text: "I don't know",
-              checked: checked("name-on-bill", "dont-know")
-            }
-          ]
-        }) }}
+        {% call govukFieldset({
+          legend: {
+            text: "Whose name is on the electricity bill covering the date 21 August 2022?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l"
+          }
+        }) %}
+
+          {{ govukInsetText({
+            html: "<p>A partner is either:</p>
+              <ul class=\"govuk-list govuk-list--bullet\">
+                <li>your husband, wife or civil partner - if you live with them</li> 
+                <li>someone you live with as a couple, without being married or in a civil partnership</li>
+              </ul>"
+          }) }}
+
+          {{ govukRadios({
+            idPrefix: "name-on-bill",
+            name: "name-on-bill",
+            items: [
+              {
+                value: "my name",
+                text: "My Name",
+                checked: checked("name-on-bill", "my name")
+              },
+              {
+                value: "my partner's name",
+                text: "My partner's name",
+                checked: checked("name-on-bill", "my partner's name")
+              },
+              {
+                value: "my landlord's name",
+                text: "My landlord's name",
+                checked: checked("name-on-bill", "my landlord's name")
+              },
+              {
+                value: "somebody-else",
+                text: "Somebody else's name",
+                checked: checked("name-on-bill", "somebody-else")
+              },
+              {
+                value: "dont-know",
+                text: "I don't know",
+                checked: checked("name-on-bill", "dont-know")
+              }
+            ]
+          }) }}
+
+        {% endcall %}
 
         <button class="govuk-button" data-module="govuk-button">Continue</button>
 

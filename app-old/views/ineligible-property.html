@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Probably ineligible – {{ serviceName }}
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {% from "govuk/components/panel/macro.njk" import govukPanel %}
+
+      {{ govukPanel({
+        titleText: "You are probably not eligible for the Warm Home Discount "
+      }) }}
+
+      <p>Based on the answers you have provided you probably do not qualify.</p>
+
+      <h2 class="govuk-heading-m">What to do next</h2>
+
+      <p>
+        If you think you are eligible, you can call the helpline on XXXXX to provide alternative data using an Energy Performance Certificate (EPC).
+        If an EPC is not available, the helpline can point to further advice and support.
+      </p>
+
+      <p><a href="https://www.citizensadvice.org.uk/">Citizens Advice</a> can help you find out about other benefits, grants or other forms of help which may be available in your area.  </p>
+
+    </div>
+  </div>
+
+{% endblock %}

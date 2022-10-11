@@ -15,8 +15,11 @@ router.post('/region-checker', function (req, res) {
   if (region == "England" || region == "Wales") {
     // Send user to next page
     res.redirect('/letter')
+  } if (region == "Northern Ireland") {
+    // Send user to ineligible region
+    res.redirect('/ineligible-region-ni')
   } else {
-    // Send user to ineligible page
+    // Send user to ineligible region
     res.redirect('/ineligible-region')
   }
 
@@ -41,6 +44,8 @@ router.post('/letter-ref-validate', function (req, res) {
 
   if (data == "whds1" || data == "whds3") {
     res.redirect('/eligible-letter-code')
+  } else if (data == "whds2" || data == "whds4") {
+    res.redirect('/eligible-letter-advice')
   } else {
     res.redirect('/name-on-bill')
   }
@@ -53,6 +58,8 @@ router.post('/bill-name-validate', function (req, res) {
 
   if (name == "my name" || name == "my partner's name") {
     res.redirect('/electricity-supplier')
+  } if (name == "my landlord's name") {
+    res.redirect('/ineligible-bill-name-landlord')
   } else {
     res.redirect('/ineligible-bill-name')
   }
@@ -63,7 +70,7 @@ router.post('/energy-supplier-validate', function (req, res) {
 
   var name = req.session.data['electricity-supplier']
 
-  if (name == "Atlantic") {
+  if (name == "My supplier is not listed") {
     res.redirect('/ineligible-supplier')
   } else {
     res.redirect('/benefits')
@@ -78,12 +85,12 @@ router.post('/benefits-validate', function (req, res) {
 
   if (data == "none") {
     res.redirect('/ineligible-benefits')
-  } if (data == "Pension Credit Guarantee Credit") {
+  } if (data == "Savings Credit element of Pension Credit") {
     res.redirect('/eligible-contact')
   } else if ( checker(["Child Tax Credit", "Working Tax Credit"], data) ) {
     res.redirect('/household-occupants')
   } else {
-    res.redirect('/property-type')
+    res.redirect('/epc')
   }
 
 })
@@ -93,9 +100,35 @@ router.post('/income-validate', function (req, res) {
   var data = req.session.data['household-income']
 
   if (data <= 20000) {
-    res.redirect('/property-type')
+    res.redirect('/epc')
   } else {
     res.redirect('/ineligible-income')
+  }
+
+})
+
+router.post('/epc-validate', function (req, res) {
+
+  var data = req.session.data['epc']
+
+  if (data == "yes") {
+    res.redirect('/property-type')
+  } else {
+    res.redirect('/ineligible-epc')
+  }
+
+})
+
+router.post('/property-type-validate', function (req, res) {
+
+  var data = req.session.data['property-type']
+
+  if (data == "Park home") {
+    res.redirect('/ineligible-property-parkhome')
+  } else if (data == "Other") { 
+    res.redirect('/ineligible-property')
+  } else {
+    res.redirect('/property-age')
   }
 
 })
@@ -105,9 +138,9 @@ router.post('/answer-validate', function (req, res) {
   var data = req.session.data['property-type']
 
   if (data == "Bungalow") {
-    res.redirect('/ineligible-property')
+    res.redirect('/eligible-unqualified')
   } else {
-    res.redirect('/eligible-property')
+    res.redirect('/eligible-qualified')
   }
 
 })

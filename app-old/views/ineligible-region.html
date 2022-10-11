@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Ineligible due to location ({{ data['region'] }}) – {{ serviceName }}
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {% from "govuk/components/panel/macro.njk" import govukPanel %}
+
+      {{ govukPanel({
+        titleText: "You are not eligible for the Warm Home Discount"
+      }) }}
+
+      <p>The Warm Home Discount is only available to residents of England and Wales.</p>
+
+      <h2 class="govuk-heading-m">What to do next</h2>
+
+      <p><a href="https://www.citizensadvice.org.uk/">Citizens Advice</a> can help you find out about other benefits, grants or other forms of help which may be available in your area.  </p> 
+
+    </div>
+  </div>
+
+{% endblock %}

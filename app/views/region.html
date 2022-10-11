@@ -16,40 +16,50 @@
       <form class="form" action="/region-checker" method="post" novalidate data-validate="form-validation">
 
         {% from "govuk/components/radios/macro.njk" import govukRadios %}
+        {% from "govuk/components/details/macro.njk" import govukDetails %}
+        
+        {% call govukFieldset({
+          legend: {
+            text: "Which country were you living in on 21 August 2022?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l"
+          }
+        }) %}
 
-        {{ govukRadios({
-          idPrefix: "region",
-          name: "region",
-          fieldset: {
-            legend: {
-              text: "What part of the UK were you living in on 21 August 2022?",
-              isPageHeading: true,
-              classes: "govuk-fieldset__legend--l"
-            }
-          },
-          items: [
-            {
-              value: "England",
-              text: "England",
-              checked: checked("region", "England")
-            },
-            {
-              value: "Scotland",
-              text: "Scotland",
-              checked: checked("region", "Scotland")
-            },
-            {
-              value: "Wales",
-              text: "Wales",
-              checked: checked("region", "Wales")
-            },
-            {
-              value: "Northern Ireland",
-              text: "Northern Ireland",
-              checked: checked("region", "Northern Ireland")
-            }
-          ]
-        }) }}
+          {{ govukDetails({
+            open: false,
+            summaryText: "Why do we need to know the date?",
+            text: "Your eligibility for the Warm Home Discount Scheme is based on your circumstances on 21 August 2022."
+          }) }}
+
+          {{ govukRadios({
+            idPrefix: "region",
+            name: "region",
+            items: [
+              {
+                value: "England",
+                text: "England",
+                checked: checked("region", "England")
+              },
+              {
+                value: "Scotland",
+                text: "Scotland",
+                checked: checked("region", "Scotland")
+              },
+              {
+                value: "Wales",
+                text: "Wales",
+                checked: checked("region", "Wales")
+              },
+              {
+                value: "Northern Ireland",
+                text: "Northern Ireland",
+                checked: checked("region", "Northern Ireland")
+              }
+            ]
+          }) }}
+
+        {% endcall %}
 
         <button class="govuk-button" data-module="govuk-button">Continue</button>
 

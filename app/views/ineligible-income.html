@@ -16,15 +16,23 @@
       {% from "govuk/components/panel/macro.njk" import govukPanel %}
 
       {{ govukPanel({
-        titleText: "You are not eligible for the Warm Home Discount"
+        titleText: "You cannot claim the Warm Home Discount this year"
       }) }}
 
-      <p>You do not qualify because your annual income is too high.</p>
+      <p>Based on the answers you have given us, you do not qualify because your annual income is too high.</p>
+
+      <p>
+        If you wish to check your most recent annual income, please call our helpline on XXXXXXXXX and they will be able to tell you.
+      </p>
       
       <h2 class="govuk-heading-m">What to do next</h2>
 
-      <p><a href="https://www.citizensadvice.org.uk/">Citizens Advice</a> can help you find out about other benefits, grants or other forms of help which may be available in your area.  </p>
+      <p>
+        You can use our <a href="https://www.gov.uk/benefits-calculators" target="_blank">benefits calculator</a> to 
+        see if you might be eligible for any benefits you are not currently claiming.
+      </p>
 
+      {% include "includes/eligiblity-next-list.html" %}
 
     </div>
   </div>

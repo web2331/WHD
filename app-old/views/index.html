@@ -1,0 +1,119 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Home – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">
+        WHD Eligibility Checker Prototype
+        <span class="govuk-caption-xl">Version 1.0</span>
+      </h1>
+      <p>
+        Prototype of the Warm Home Discount Eligibility Checker for BEIS built using the GDS prototyping toolkit.
+      </p>
+
+      <h2 class="govuk-heading-m">Prototype sitemap</h2>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li>
+          <a href="/start">Warm Home Discount Eligibility Checker</a>
+        </li>
+        <li>
+          <a href="/region">Region</a>
+
+          <ul>
+            <li>
+              <a href="/ineligible-region">Ineligible due to location</a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a href="/letter">Letter</a>
+
+          <ul>
+            <li>
+              <a href="/letter-reference">Letter reference code</a>
+            </li>
+            <li>
+              <a href="/eligible-letter-code">Eligible due to letter code</a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a href="/name-on-bill">Name on bill</a>
+
+          <ul>
+            <li>
+              <a href="/ineligible-bill-name">Ineligible due to wrong name on bill</a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a href="/electricity-supplier">Electricity Supplier</a>
+
+          <ul>
+            <li>
+              <a href="/ineligible-supplier">Ineligible due to energy supplier</a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a href="/benefits">Benefits</a>
+
+          <ul>
+            <li>
+              <a href="/household-occupants">Household occupants</a>
+            </li>
+            <li>
+              <a href="/household-income">Household income</a>
+            </li>
+            <li>
+              <a href="/ineligible-income">Ineligible - Income over threshold</a>
+            </li>
+            <li>
+              <a href="/ineligible-benefits">Ineligible - Not on benefits</a>
+            </li>
+            <li>
+              <a href="/eligible-contact">Eligible</a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a href="/property-type">Property Type</a>
+        </li>
+        <li>
+          <a href="/property-age">Property Age</a>
+        </li>
+        <li>
+          <a href="/property-size">Property Size</a>
+        </li>
+        <li>
+          <a href="/check-answers">Check answers</a>
+
+          <ul>
+            <li>
+              <a href="/ineligible-property">Probably ineligible</a>
+            </li>
+            <li>
+              <a href="/eligible-property">Probably eligible</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+
+      <h2 class="govuk-heading-m">Updates</h2>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li>
+          Version 1.0 - 22/09/2022 - Initial deployment of prototype
+        </li>
+      </ul>
+    </div>
+  </div>
+
+{% endblock %}

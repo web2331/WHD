@@ -19,7 +19,7 @@
       <dl class="govuk-summary-list govuk-!-margin-bottom-9">
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
-            Region
+            Country
           </dt>
           <dd class="govuk-summary-list__value">
             {{ data['region'] }}
@@ -27,15 +27,11 @@
           <dd class="govuk-summary-list__actions">
             <a href="/region">
               Change
-              <span class="govuk-visually-hidden"> letter</span>
+              <span class="govuk-visually-hidden"> country</span>
             </a>
           </dd>
         </div>
-      </dl>
 
-      <h2 class="govuk-heading-m">Your energy details</h2>
-
-      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
             Government Letter
@@ -50,7 +46,29 @@
             </a>
           </dd>
         </div>
-        <div class="govuk-summary-list__row">
+
+        {% if (data['letter-ref']) %}
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Letter reference
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['letter-ref'] | upper }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="/letter-reference">
+                Change
+                <span class="govuk-visually-hidden"> letter reference code</span>
+              </a>
+            </dd>
+          </div>
+        {% endif %}
+      </dl>
+
+      <h2 class="govuk-heading-m">Your energy details</h2>
+
+      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
             Electricity bill
           </dt>
@@ -66,7 +84,7 @@
         </div>
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
-            Electricity Supplier
+            Electricity supplier
           </dt>
           <dd class="govuk-summary-list__value">
             {{ data['electricity-supplier'] }}
@@ -106,6 +124,7 @@
           </dt>
           <dd class="govuk-summary-list__value">
             {{ data['household-size[adult]'] | default(0) }} Adults <br/>
+            {{ data['household-size[young_people]'] | default(0) }} Young people <br/>
             {{ data['household-size[children]'] | default(0) }} Children
           </dd>
           <dd class="govuk-summary-list__actions">
@@ -139,6 +158,21 @@
       <dl class="govuk-summary-list govuk-!-margin-bottom-9">
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
+            EPC Certificate
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['epc'] | capitalize }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a href="/epc">
+              Change
+              <span class="govuk-visually-hidden"> EPC detail</span>
+            </a>
+          </dd>
+        </div>
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
             Property type
           </dt>
           <dd class="govuk-summary-list__value">
@@ -151,6 +185,7 @@
             </a>
           </dd>
         </div>
+
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
             Age of property
@@ -165,6 +200,7 @@
             </a>
           </dd>
         </div>
+
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
             Size of property
@@ -175,7 +211,7 @@
           <dd class="govuk-summary-list__actions">
             <a href="/property-size">
               Change
-              <span class="govuk-visually-hidden"> size of property</span>
+              <span class="govuk-visually-hidden"> size of property </span>
             </a>
           </dd>
         </div>

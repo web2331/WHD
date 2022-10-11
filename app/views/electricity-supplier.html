@@ -16,154 +16,169 @@
       <form class="form" action="/energy-supplier-validate" method="post">
 
         {% from "govuk/components/select/macro.njk" import govukSelect %}
+        {% from "govuk/components/details/macro.njk" import govukDetails %}
 
-        {{ govukSelect({
-          id: "select-electricity-supplier",
-          name: "electricity-supplier",
-          label: {
-            text: "Who was your electricity supplier on 21 August 2022?",
+        {% call govukFieldset({
+          legend: {
+            text: "Which country were you living in on 21 August 2022?",
             isPageHeading: true,
-            classes: "govuk-label--l"
-          },
-          items: [
-            {
-              value: "",
-              text: ""
+            classes: "govuk-fieldset__legend--l"
+          }
+        }) %}
+
+          {{ govukDetails({
+            open: false,
+            summaryText: "Why do we need to know the date?",
+            text: "The money is not paid to you - it's a one-off discount on your electricity bill, between October and March. If you have changed suppliers since 21 August 2022, your previous supplier will issue the refund directly."
+          }) }}
+
+          {{ govukSelect({
+            id: "electricity-supplier",
+            name: "electricity-supplier",
+            hint: {
+              text: 'Enter your energy supplier, if your energy supplier is not listed, select "My supplier is not listed"'
             },
-            {
-              value: "Affect Energy",
-              text: "Affect Energy"
-            },
-            {
-              value: "Atlantic",
-              text: "Atlantic"
-            },
-            {
-              value: "Boost",
-              text: "Boost"
-            },
-            {
-              value: "British Gas",
-              text: "British Gas"
-            },
-            {
-              value: "British Gas Evolve",
-              text: "British Gas Evolve (formerly British Gas X)"
-            },
-            {
-              value: "Bulb Energy",
-              text: "Bulb Energy"
-            },
-            {
-              value: "Co-op Energy",
-              text: "Co-op Energy - see Octopus Energy"
-            },
-            {
-              value: "E (Gas and Electricity)",
-              text: "E (Gas and Electricity)"
-            },
-            {
-              value: "E.ON",
-              text: "E.ON"
-            },
-            {
-              value: "E.ON Next",
-              text: "E.ON Next"
-            },
-            {
-              value: "Ebico",
-              text: "Ebico"
-            },
-            {
-              value: "Ecotricity",
-              text: "Ecotricity"
-            },
-            {
-              value: "EDF Energy",
-              text: "EDF Energy"
-            },
-            {
-              value: "ESB Energy",
-              text: "ESB Energy"
-            },
-            {
-              value: "GEUK (Green Energy UK)",
-              text: "GEUK (Green Energy UK)"
-            },
-            {
-              value: "London Power",
-              text: "London Power"
-            },
-            {
-              value: "M&S Energy",
-              text: "M&S Energy"
-            },
-            {
-              value: "Nabuh Energy",
-              text: "Nabuh Energy"
-            },
-            {
-              value: "Octopus Energy",
-              text: "Octopus Energy"
-            },
-            {
-              value: "Outfox Market",
-              text: "Outfox the Market"
-            },
-            {
-              value: "OVO",
-              text: "OVO"
-            },
-            {
-              value: "Rebel Energy",
-              text: "Rebel Energy"
-            },
-            {
-              value: "Sainsbury Energy",
-              text: "Sainsbury's Energy"
-            },
-            {
-              value: "Scottish Gas",
-              text: "Scottish Gas"
-            },
-            {
-              value: "Scottish Hydro",
-              text: "Scottish Hydro"
-            },
-            {
-              value: "Scottish Power",
-              text: "ScottishPower"
-            },
-            {
-              value: "Shell Energy Retail",
-              text: "Shell Energy Retail"
-            },
-            {
-              value: "So Energy",
-              text: "So Energy"
-            },
-            {
-              value: "Southern Electric",
-              text: "Southern Electric"
-            },
-            {
-              value: "SSE",
-              text: "SSE"
-            },
-            {
-              value: "Swalec",
-              text: "Swalec"
-            },
-            {
-              value: "Utilita",
-              text: "Utilita"
-            },
-            {
-              value: "Utility Warehouse",
-              text: "Utility Warehouse"
-            }
-          ]
-        }) }}
+            items: [
+              {
+                value: "",
+                text: ""
+              },
+              {
+                value: "Affect Energy",
+                text: "Affect Energy"
+              },
+              {
+                value: "Atlantic",
+                text: "Atlantic"
+              },
+              {
+                value: "Boost",
+                text: "Boost"
+              },
+              {
+                value: "British Gas",
+                text: "British Gas"
+              },
+              {
+                value: "British Gas Evolve",
+                text: "British Gas Evolve (formerly British Gas X)"
+              },
+              {
+                value: "Bulb Energy",
+                text: "Bulb Energy"
+              },
+              {
+                value: "Co-op Energy",
+                text: "Co-op Energy - see Octopus Energy"
+              },
+              {
+                value: "E (Gas and Electricity)",
+                text: "E (Gas and Electricity)"
+              },
+              {
+                value: "Ecotricity",
+                text: "Ecotricity"
+              },
+              {
+                value: "EDF Energy",
+                text: "EDF Energy"
+              },
+              {
+                value: "E.ON",
+                text: "E.ON"
+              },
+              {
+                value: "E.ON Next",
+                text: "E.ON Next"
+              },
+              {
+                value: "GEUK (Green Energy UK)",
+                text: "GEUK (Green Energy UK)"
+              },
+              {
+                value: "Good Energy",
+                text: "Good Energy"
+              },
+              {
+                value: "London Power",
+                text: "London Power"
+              },
+              {
+                value: "M&S Energy",
+                text: "M&S Energy"
+              },
+              {
+                value: "Nabuh Energy",
+                text: "Nabuh Energy"
+              },
+              {
+                value: "Octopus Energy",
+                text: "Octopus Energy"
+              },
+              {
+                value: "Outfox Market",
+                text: "Outfox the Market"
+              },
+              {
+                value: "OVO",
+                text: "OVO"
+              },
+              {
+                value: "Rebel Energy",
+                text: "Rebel Energy"
+              },
+              {
+                value: "Sainsbury Energy",
+                text: "Sainsbury's Energy"
+              },
+              {
+                value: "Scottish Gas",
+                text: "Scottish Gas"
+              },
+              {
+                value: "Scottish Hydro",
+                text: "Scottish Hydro"
+              },
+              {
+                value: "Scottish Power",
+                text: "ScottishPower"
+              },
+              {
+                value: "Shell Energy Retail",
+                text: "Shell Energy Retail"
+              },
+              {
+                value: "So Energy",
+                text: "So Energy"
+              },
+              {
+                value: "Southern Electric",
+                text: "Southern Electric"
+              },
+              {
+                value: "SSE",
+                text: "SSE"
+              },
+              {
+                value: "Swalec",
+                text: "Swalec"
+              },
+              {
+                value: "Utilita",
+                text: "Utilita"
+              },
+              {
+                value: "Utility Warehouse",
+                text: "Utility Warehouse"
+              },
+              {
+                value: "My supplier is not listed",
+                text: "My supplier is not listed"
+              }
+            ]
+          }) }}
+
+        {% endcall %}
 
         <button class="govuk-button" data-module="govuk-button">Continue</button>
 

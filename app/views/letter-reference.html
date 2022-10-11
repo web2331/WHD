@@ -22,45 +22,51 @@
           name: "letter-ref",
           fieldset: {
             legend: {
-              text: "Select the reference that was printed in the top left-hand corner of your letter",
+              text: "Letter reference",
               isPageHeading: true,
               classes: "govuk-fieldset__legend--l"
             }
           },
+          hint: {
+            html: "Enter the reference that was printed in the top left-hand corner of your letter, If you are in Wales, please use the code from the top of your English language letter."
+          },  
           items: [
             {
               value: "whds1",
-              text: "WHDS1",
+              text: "WHDS1 or WHDS1D",
               checked: checked("letter-ref", "whds1")
             },
             {
               value: "whds2",
-              text: "WHDS2",
+              text: "WHDS2 or WHDS2D",
               checked: checked("letter-ref", "whds2")
             },
             {
               value: "whds3",
-              text: "WHDS3",
+              text: "WHDS3 or WHDS3D",
               checked: checked("letter-ref", "whds2")
             },
             {
               value: "whds4",
-              text: "WHDS4",
+              text: "WHDS4 or WHDS4D",
               checked: checked("letter-ref", "whds2")
             },
             {
               value: "whds5",
-              text: "WHDS5",
+              text: "WHDS5 or WHDS5D",
               checked: checked("letter-ref", "whds2")
             },
             {
               value: "whds6",
-              text: "WHDS6",
+              text: "WHDS6 or WHDS6D",
               checked: checked("letter-ref", "whds2")
             },
             {
+              divider: "or"
+            },
+            {
               value: "dont-know",
-              text: "I don't know",
+              text: "Don't know",
               checked: checked("letter-ref", "dont-know")
             }
           ]

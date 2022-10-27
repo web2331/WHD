@@ -16,16 +16,27 @@
       {% from "govuk/components/panel/macro.njk" import govukPanel %}
 
       {{ govukPanel({
-        titleText: "Sorry, this service isn't for you"
+        titleText: "The Warm Home Discount is not available to residents of Northern Ireland"
       }) }}
-
-      <p>The Warm Home Discount is not available to residents of Northern Ireland.</p>
 
       <h2 class="govuk-heading-m">What to do next</h2>
 
       <p>
-        You may qualify for the <a href="https://www.nihe.gov.uk/Housing-Help/Affordable-Warmth-Boiler-Replacement" target="_blank">Affordable Warmth / Boiler Replacement Schemes</a> which help tackle fuel poverty and energy inefficiency in privately owned houses.
+        You may be eligible for these schemes instead:
       </p>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li>
+          <a href="https://www.nihe.gov.uk/Housing-Help/Affordable-Warmth-Boiler-Replacement" target="_blank">Affordable Warmth Scheme</a>
+          (a grant to make your property more energy efficient)
+        </li>
+        <li>
+          <a href="https://www.nihe.gov.uk/Housing-Help/Affordable-Warmth-Boiler-Replacement" target="_blank">Boiler Replacement Scheme</a>
+          (help with the cost of replacing certain boilers over 15 years old)
+        </li>
+      </ul>      
+
+      {% include "includes/eligiblity-next-list.html" %}
 
     </div>
   </div>

@@ -1,0 +1,92 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Letter referrence code – {{ serviceName }}
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="/letter-ref-validate" method="post" novalidate data-validate="form-validation">
+
+        {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+        {{ govukRadios({
+          idPrefix: "letter-ref",
+          name: "letter-ref",
+          fieldset: {
+            legend: {
+              text: "Letter reference",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          hint: {
+            html: "Enter the reference that was printed in the top left-hand corner of your letter, If you are in Wales, please use the code from the top of your English language letter."
+          },  
+          items: [
+            {
+              value: "whds1",
+              text: "WHDS1 or WHDS1D",
+              checked: checked("letter-ref", "whds1")
+            },
+            {
+              value: "whds2",
+              text: "WHDS2 or WHDS2D",
+              checked: checked("letter-ref", "whds2")
+            },
+            {
+              value: "whds3",
+              text: "WHDS3 or WHDS3D",
+              checked: checked("letter-ref", "whds2")
+            },
+            {
+              value: "whds4",
+              text: "WHDS4 or WHDS4D",
+              checked: checked("letter-ref", "whds2")
+            },
+            {
+              value: "whds5",
+              text: "WHDS5 or WHDS5D",
+              checked: checked("letter-ref", "whds2")
+            },
+            {
+              value: "whds6",
+              text: "WHDS6 or WHDS6D",
+              checked: checked("letter-ref", "whds2")
+            },
+            {
+              divider: "or"
+            },
+            {
+              value: "dont-know",
+              text: "Don't know",
+              checked: checked("letter-ref", "dont-know")
+            }
+          ]
+        }) }}
+
+        <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+      </form>
+
+      <script type="application/json" id="form-validation">
+        { 		
+          "letter-ref": {
+            "presence": {
+              "message": "^Select the letter reference code printed on your letter"
+            }
+          }
+        }
+      </script>
+
+    </div>
+  </div>
+
+{% endblock %}

@@ -17,18 +17,33 @@
     <div class="govuk-grid-column-two-thirds">
 
       <h1 class="govuk-heading-xl">
-        {% if serviceName %} {{ serviceName }} {% endif %}
+        Check if you are eligible for the Warm Home Discount Scheme (England and Wales)
       </h1>
 
-      <p>Use this service to check if you can get &pound;150 off your electricity bill for winter 2022 to 2023 under the Warm Home Discount Scheme.</p>
+      <p>
+        Most households eligible for the Warm Home Discount Scheme will automatically receive the discount from their electricity supplier.
+      </p>
 
-      {% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
+      <p>
+        If you are eligible, you will receive a notice letter from the government before the middle of January 2023.
+      </p>
 
-      {{ govukInsetText({
-        html: 'This service can only determine the eligibility of users in England and Wales. 
-        Visit the <a href="https://www.gov.uk/the-warm-home-discount-scheme" target="_blank">Warm Home Discount Scheme</a> for more information on eligibility requirements in Scotland. 
-        If you live in Northern Ireland, you may qualify for the <a href="https://www.nihe.gov.uk/Housing-Help/Affordable-Warmth-Boiler-Replacement" target="_blank">Affordable Warmth / Boiler Replacement</a> Schemes.'
-      }) }}
+      <p>
+        Use this service to:
+      </p>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li>
+          check if you might be eligible for the Warm Home Discount Scheme
+        </li>
+        <li>
+          learn what to do if you believe you might be eligible for the discount, but have not been contacted by the government
+        </li>
+      </ul>
+
+      <p>
+        If you live in a park home, you will need to apply for the <a href="#" target="_blank"">Park Homes Warm Home Discount Scheme</a> instead.
+      </p>
 
       <a href="/region" role="button" draggable="false" class="govuk-button govuk-button--start govuk-!-margin-top-2 govuk-!-margin-bottom-8"  data-module="govuk-button">
         Start now
@@ -36,6 +51,38 @@
           <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z"></path>
         </svg>
       </a>
+
+      <h2 class="govuk-heading-m">What you need</h2>
+
+      <p>
+        You'll be asked about:
+      </p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>
+          your electricity supplier
+        </li>
+        <li>
+          any benefits you receive
+        </li>
+        <li>
+          your property
+        </li>
+      </ul>
+
+      <p>
+        You'll need to know the size and age of your property. This information can be found:
+      </p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>
+          on an Energy Performance Certificate (EPC)
+        </li>
+        <li>
+          on the <a href="https://epc.opendatacommunities.org/login" target="_blank">Energy Performance of Buildings Register (opens in new tab)</a>
+        </li>
+        <li>
+          on documentation such as your tenancy agreement or insurance paperwork
+        </li>
+      </ul>
 
     </div>
 

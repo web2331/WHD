@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Eligible - {{ serviceName }}
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      
+      {% from "govuk/components/panel/macro.njk" import govukPanel %}
+
+      {{ govukPanel({
+        titleText: "Please wait for a letter"
+      }) }}
+
+      <p>
+        Because you receive the Pension Credit Guarantee Credit, you are eligible for this year's Warm Home Discount Scheme.
+      </p>
+
+      <p>
+        You should automatically receive the Warm Home Discount this winter without needing to do anything.
+      </p>
+
+      {% include "includes/eligiblity-next-list.html" %}
+
+    </div>
+  </div>
+
+{% endblock %}

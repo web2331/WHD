@@ -1,0 +1,83 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  EPC – {{ serviceName }}
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="/epc-validate" method="post" novalidate data-validate="form-validation">
+
+        {% from "govuk/components/radios/macro.njk" import govukRadios %}
+        {% from "govuk/components/details/macro.njk" import govukDetails %}
+        
+        {% call govukFieldset({
+          legend: {
+            text: "Do you have an Energy Performance Certificate (EPC) for the home you were living in on 21 August 2022?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l"
+          }
+        }) %}
+
+          {{ govukDetails({
+            open: false,
+            summaryText: "Why do I need an EPC?",
+            text: "The EPC provides details of the property which we need to check your eligibility."
+          }) }}
+
+          <p>
+            If you are a tenant, the EPC may have been provided by the landlord or letting agency when you moved in. 
+            If you are a homeowner, it will probably have been provided by the estate agent when you were arranging your purchase.
+          </p>
+
+          <p>
+            If you cannot find a paper copy, you can search for your home's 
+            EPC at the <a href="https://epc.opendatacommunities.org/login" target="_blank">Energy Performance of Buildings Register</a>. 
+            You do not have to pay to use this service.
+          </p>
+
+          {{ govukRadios({
+            classes: "govuk-radios--inline",
+            idPrefix: "epc",
+            name: "epc",
+            items: [
+              {
+                value: "yes",
+                text: "Yes",
+                checked: checked("epc", "yes")
+              },
+              {
+                value: "no",
+                text: "No",
+                checked: checked("epc", "no")
+              }
+            ]
+          }) }}
+
+        {% endcall %}
+
+        <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+      </form>
+
+      <script type="application/json" id="form-validation">
+        {
+          "epc": {
+            "presence": {
+              "message": "^Select an option"
+            }
+          }
+        }
+      </script>
+
+    </div>
+  </div>
+
+{% endblock %}

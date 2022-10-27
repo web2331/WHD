@@ -16,7 +16,7 @@
       {% from "govuk/components/panel/macro.njk" import govukPanel %}
 
       {{ govukPanel({
-        titleText: "Sorry, this service isn't for you"
+        titleText: "This service is only for people living in England and Wales"
       }) }}
 
       <p>This service can only determine the eligibility of users in England and Wales.</p>
@@ -24,8 +24,10 @@
       <h2 class="govuk-heading-m">What to do next</h2>
 
       <p>
-        Visit the <a href="https://www.gov.uk/the-warm-home-discount-scheme" target="_blank">Warm Home Discount Scheme</a> for more information on eligibility requirements in Scotland.
+        Go to the <a href="https://www.gov.uk/the-warm-home-discount-scheme" target="_blank">Warm Home Discount Scheme</a> page for eligibility requirements in Scotland.
       </p>
+
+      {% include "includes/eligiblity-next-list.html" %}
 
     </div>
   </div>

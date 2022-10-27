@@ -16,61 +16,71 @@
       <form class="form" action="/letter-ref-validate" method="post" novalidate data-validate="form-validation">
 
         {% from "govuk/components/radios/macro.njk" import govukRadios %}
+        {% from "govuk/components/details/macro.njk" import govukDetails %}
+        {% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
 
-        {{ govukRadios({
-          idPrefix: "letter-ref",
-          name: "letter-ref",
-          fieldset: {
-            legend: {
-              text: "Letter reference",
-              isPageHeading: true,
-              classes: "govuk-fieldset__legend--l"
-            }
-          },
-          hint: {
-            html: "Enter the reference that was printed in the top left-hand corner of your letter, If you are in Wales, please use the code from the top of your English language letter."
-          },  
-          items: [
-            {
-              value: "whds1",
-              text: "WHDS1 or WHDS1D",
-              checked: checked("letter-ref", "whds1")
-            },
-            {
-              value: "whds2",
-              text: "WHDS2 or WHDS2D",
-              checked: checked("letter-ref", "whds2")
-            },
-            {
-              value: "whds3",
-              text: "WHDS3 or WHDS3D",
-              checked: checked("letter-ref", "whds2")
-            },
-            {
-              value: "whds4",
-              text: "WHDS4 or WHDS4D",
-              checked: checked("letter-ref", "whds2")
-            },
-            {
-              value: "whds5",
-              text: "WHDS5 or WHDS5D",
-              checked: checked("letter-ref", "whds2")
-            },
-            {
-              value: "whds6",
-              text: "WHDS6 or WHDS6D",
-              checked: checked("letter-ref", "whds2")
-            },
-            {
-              divider: "or"
-            },
-            {
-              value: "dont-know",
-              text: "Don't know",
-              checked: checked("letter-ref", "dont-know")
-            }
-          ]
-        }) }}
+        {% call govukFieldset({
+          legend: {
+            text: "Letter reference",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l"
+          }
+        }) %}
+
+          <p>What are the first five characters of your letter's reference code?</p>
+
+          {{ govukInsetText({
+            text: "The reference code can be found in the top left-hand corner of your letter and begins with WHD."
+          }) }}
+
+          <p>If you live in Wales, use the code from your English language letter.</p>
+
+          {{ govukRadios({
+            idPrefix: "letter-ref",
+            name: "letter-ref",
+            items: [
+              {
+                value: "whds1",
+                text: "WHDS1",
+                checked: checked("letter-ref", "whds1")
+              },
+              {
+                value: "whds2",
+                text: "WHDS2",
+                checked: checked("letter-ref", "whds2")
+              },
+              {
+                value: "whds3",
+                text: "WHDS3",
+                checked: checked("letter-ref", "whds2")
+              },
+              {
+                value: "whds4",
+                text: "WHDS4",
+                checked: checked("letter-ref", "whds2")
+              },
+              {
+                value: "whds5",
+                text: "WHDS5",
+                checked: checked("letter-ref", "whds2")
+              },
+              {
+                value: "whds6",
+                text: "WHDS6",
+                checked: checked("letter-ref", "whds2")
+              },
+              {
+                divider: "or"
+              },
+              {
+                value: "dont-know",
+                text: "Don't know",
+                checked: checked("letter-ref", "dont-know")
+              }
+            ]
+          }) }}
+
+        {% endcall %}
 
         <button class="govuk-button" data-module="govuk-button">Continue</button>
 

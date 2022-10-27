@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Ineligible - No EPC certificate - {{ serviceName }}
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {% from "govuk/components/panel/macro.njk" import govukPanel %}
+
+      {{ govukPanel({
+        titleText: "You need an EPC to complete this service"
+      }) }}
+
+      <p>
+        If you cannot find a paper copy, and if you cannot find your property 
+        on the <a href="https://epc.opendatacommunities.org/login" target="_blank">Energy Performance of Buildings Register</a>, 
+        it is likely there is no EPC for your property.     
+      </p>
+
+      <h2 class="govuk-heading-m">What to do next</h2>
+
+      <p>
+        It might be worth searching to see if any similar neighbouring properties 
+        have EPCs which you could use to complete this service and see if you are likely to be eligible.        
+      </p>
+
+      <p>
+        You can also <a href="https://www.gov.uk/get-new-energy-certificate" target="_blank">get a new energy certificate</a> for your property.
+      </p>
+
+      {% include "includes/eligiblity-next-list.html" %}
+
+    </div>
+  </div>
+
+{% endblock %}

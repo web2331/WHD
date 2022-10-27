@@ -16,27 +16,52 @@
       <form class="form" action="/check-answers" method="post" novalidate data-validate="form-validation">
 
         {% from "govuk/components/input/macro.njk" import govukInput %}
+        {% from "govuk/components/details/macro.njk" import govukDetails %}
 
-        {{ govukInput({
-          id: "property-size",
-          name: "property-size",
-          label: {
-            text: "How big is your property?",
-            classes: "govuk-label--l",
-            isPageHeading: true
-          },
-          hint: {
-            classes: "app-hint",
-            html: '<p>You can find the floor area on Energy Performance Certificate (EPC) for the home you were living in on 21 August 2022.</p>
-            <p>If you are using the <a href="https://epc.opendatacommunities.org/login" target="_blank">Energy Performance of Buildings Register</a>, you can find this information under the heading "Construction age band".</p>'
-          },
-          classes: "govuk-input--width-5",
-          suffix: {
-            text: "square meters"
-          },
-          spellcheck: false,
-          value: data['property-size']
-        }) }}
+        {% call govukFieldset({
+          legend: {
+            text: "What is the size of this property?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l"
+          }
+        }) %}
+
+          {{ govukDetails({
+            open: false,
+            summaryText: "How to find the size of your property ",
+            html: "
+              <p>The total area of your property will be on your property's Energy Performance Certificate (EPC).</p>
+
+              <p>If you are a tenant, the property's EPC may have been provided by the landlord or letting agency when you moved in.</p>
+
+              <p>If you are a homeowner, the property's EPC may have been provided by the estate agent during the house sale.</p>
+
+              <h3 class=\"govuk-heading-m\">Find your property's EPC online</h3>
+
+              <p>
+                If you do not have a paper copy, search for your property's EPC on the
+                <a href=\"https://epc.opendatacommunities.org/login\" target=\"_blank\">Energy Performance of Buildings Register (opens in new tab)</a>.
+                You do not have to pay for this service.
+              </p>
+              
+              <p>The size of your property will be listed under the 'total floor area'.</p>
+
+              <p>Your property's size may also be listed in your tenancy agreement or on insurance paperwork.</p>
+            "
+          }) }}
+
+          {{ govukInput({
+            id: "property-size",
+            name: "property-size",
+            classes: "govuk-input--width-5",
+            suffix: {
+              text: "square meters"
+            },
+            spellcheck: false,
+            value: data['property-size']
+          }) }}
+
+        {% endcall %}
 
         <button class="govuk-button" data-module="govuk-button">Continue</button>
 

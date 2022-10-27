@@ -16,45 +16,35 @@
       <form class="form" action="/letter-validate" method="post" novalidate data-validate="form-validation">
 
         {% from "govuk/components/radios/macro.njk" import govukRadios %}
-        {% from "govuk/components/details/macro.njk" import govukDetails %}
-        
-        {% call govukFieldset({
-          legend: {
-            text: "Have you received a letter from the government about the Warm Home Discount?",
-            isPageHeading: true,
-            classes: "govuk-fieldset__legend--l"
-          }
-        }) %}
-
-          {{ govukDetails({
-            open: false,
-            summaryText: "Why do we need to know this?",
-            text: "Some people are being sent letters explaining their eligibility."
-          }) }}
-
-          {{ govukRadios({
-            idPrefix: "letter",
-            name: "letter",
-            items: [
-              {
-                value: "yes",
-                text: "Yes",
-                checked: checked("letter", "yes")
-              },
-              {
-                value: "no",
-                text: "No",
-                checked: checked("letter", "no")
-              },
-              {
-                value: "I don't know",
-                text: "I don't know",
-                checked: checked("letter", "I don't know")
-              }
-            ]
-          }) }}
-
-        {% endcall %}
+      
+        {{ govukRadios({
+          idPrefix: "letter",
+          name: "letter",
+          fieldset: {
+            legend: {
+              text: "Have you already received a letter from the government about the Warm Home Discount?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }              
+          },
+          items: [
+            {
+              value: "yes",
+              text: "Yes",
+              checked: checked("letter", "yes")
+            },
+            {
+              value: "no",
+              text: "No",
+              checked: checked("letter", "no")
+            },
+            {
+              value: "I don't know",
+              text: "I don't know",
+              checked: checked("letter", "I don't know")
+            }
+          ]
+        }) }}
 
         <button class="govuk-button" data-module="govuk-button">Continue</button>
 

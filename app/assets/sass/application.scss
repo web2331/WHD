@@ -22,6 +22,10 @@ $govuk-assets-path: '/govuk/assets/';
   color: $govuk-secondary-text-colour;
 }
 
+.app-hint {
+  color: $govuk-text-colour;
+}
+
 .autocomplete__wrapper * {
   @include govuk-typography-common();
 }

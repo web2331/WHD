@@ -16,85 +16,109 @@
       <form class="form" action="/property-size" method="post">
 
         {% from "govuk/components/radios/macro.njk" import govukRadios %}
+        {% from "govuk/components/details/macro.njk" import govukDetails %}
 
-        {{ govukRadios({
-          idPrefix: "property-age",
-          name: "property-age",
-          fieldset: {
-            legend: {
-              text: "When was your property built?",
-              isPageHeading: true,
-              classes: "govuk-fieldset__legend--l"
-            }
-          },
-          hint: {
-            classes: "app-hint",
-            html: '<p>You can find this information on Energy Performance Certificate (EPC) for the home you were living in on 21 August 2022.</p>
-            <p>If you are using the <a href="https://epc.opendatacommunities.org/login" target="_blank">Energy Performance of Buildings Register</a>, you can find this information under the heading "Construction age band".</p>'
-          },
-          items: [
-            {
-              value: "Before 1900",
-              text: "Before 1900",
-              checked: checked("property-age", "Before 1900")
-            },
-            {
-              value: "Between 1900 and 1929",
-              text: "Between 1900 and 1929",
-              checked: checked("property-age", "Between 1900 and 1929")
-            },
-            {
-              value: "Between 1930 and 1949",
-              text: "Between 1930 and 1949",
-              checked: checked("property-age", "Between 1930 and 1949")
-            },
-            {
-              value: "Between 1950 and 1966",
-              text: "Between 1950 and 1966",
-              checked: checked("property-age", "Between 1950 and 1966")
-            },
-            {
-              value: "Between 1967 and 1975",
-              text: "Between 1967 and 1975",
-              checked: checked("property-age", "Between 1967 and 1975")
-            },
-            {
-              value: "Between 1976 and 1982",
-              text: "Between 1976 and 1982",
-              checked: checked("property-age", "Between 1976 and 1982")
-            },
-            {
-              value: "Between 1983 and 1990",
-              text: "Between 1983 and 1990",
-              checked: checked("property-age", "Between 1983 and 1990")
-            },
-            {
-              value: "Between 1991 and 1995",
-              text: "Between 1991 and 1995",
-              checked: checked("property-age", "Between 1991 and 1995")
-            },
-            {
-              value: "Between 1996 and 2002",
-              text: "Between 1996 and 2002",
-              checked: checked("property-age", "Between 1996 and 2002")
-            },
-            {
-              value: "Between 2003 and 2006",
-              text: "Between 2003 and 2006",
-              checked: checked("property-age", "Between 2003 and 2006")
-            },
-            {
-              value: "Between 2007 and 2011",
-              text: "Between 2007 and 2011",
-              checked: checked("property-age", "Between 2007 and 2011")
-            },
-            {
-              value: "After 2012",
-              text: "After 2012",
-              checked: checked("property-age", "After 2012")
-            }
-          ]
-        }) }}
+        {% call govukFieldset({
+          legend: {
+            text: "When was this property built?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l"
+          }
+        }) %}
+
+          {{ govukDetails({
+            open: false,
+            summaryText: "How to find the age of your property ",
+            html: "
+              <p>The construction date will be on your property's Energy Performance Certificate (EPC).</p>
+
+              <p>If you are a tenant, the property's EPC may have been provided by the landlord or letting agency when you moved in.</p>
+
+              <p>If you are a homeowner, the property's EPC may have been provided by the estate agent during the house sale.</p>
+
+              <h3 class=\"govuk-heading-m\">Find your property's EPC online</h3>
+
+              <p>
+                If you do not have a paper copy, search for your property's EPC on the
+                <a href=\"https://epc.opendatacommunities.org/login\" target=\"_blank\">Energy Performance of Buildings Register (opens in new tab)</a>. 
+                You do not have to pay for this service.
+              </p>
+
+              <p>The construction date of your property will be listed under the 'construction age band'.</p>
+
+              <p>Your property's construction date may also be listed in your tenancy agreement or on insurance paperwork.</p>
+            "
+          }) }}
+
+
+          {{ govukRadios({
+            idPrefix: "property-age",
+            name: "property-age",
+            items: [
+              {
+                value: "Before 1900",
+                text: "Before 1900",
+                checked: checked("property-age", "Before 1900")
+              },
+              {
+                value: "Between 1900 and 1929",
+                text: "Between 1900 and 1929",
+                checked: checked("property-age", "Between 1900 and 1929")
+              },
+              {
+                value: "Between 1930 and 1949",
+                text: "Between 1930 and 1949",
+                checked: checked("property-age", "Between 1930 and 1949")
+              },
+              {
+                value: "Between 1950 and 1966",
+                text: "Between 1950 and 1966",
+                checked: checked("property-age", "Between 1950 and 1966")
+              },
+              {
+                value: "Between 1967 and 1975",
+                text: "Between 1967 and 1975",
+                checked: checked("property-age", "Between 1967 and 1975")
+              },
+              {
+                value: "Between 1976 and 1982",
+                text: "Between 1976 and 1982",
+                checked: checked("property-age", "Between 1976 and 1982")
+              },
+              {
+                value: "Between 1983 and 1990",
+                text: "Between 1983 and 1990",
+                checked: checked("property-age", "Between 1983 and 1990")
+              },
+              {
+                value: "Between 1991 and 1995",
+                text: "Between 1991 and 1995",
+                checked: checked("property-age", "Between 1991 and 1995")
+              },
+              {
+                value: "Between 1996 and 2002",
+                text: "Between 1996 and 2002",
+                checked: checked("property-age", "Between 1996 and 2002")
+              },
+              {
+                value: "Between 2003 and 2006",
+                text: "Between 2003 and 2006",
+                checked: checked("property-age", "Between 2003 and 2006")
+              },
+              {
+                value: "Between 2007 and 2011",
+                text: "Between 2007 and 2011",
+                checked: checked("property-age", "Between 2007 and 2011")
+              },
+              {
+                value: "After 2012",
+                text: "After 2012",
+                checked: checked("property-age", "After 2012")
+              }
+            ]
+          }) }}
+
+        {% endcall %}
 
         <button class="govuk-button" data-module="govuk-button">Continue</button>
 

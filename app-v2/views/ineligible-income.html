@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Ineligible due to above income threshold – {{ serviceName }}
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {% from "govuk/components/panel/macro.njk" import govukPanel %}
+
+      {{ govukPanel({
+        titleText: "You cannot claim the Warm Home Discount this year"
+      }) }}
+
+      <p>Based on the answers you have given us, you do not qualify because your annual income is too high.</p>
+
+      <p>
+        If you wish to check your most recent annual income, please call our helpline on XXXXXXXXX and they will be able to tell you.
+      </p>
+      
+      <h2 class="govuk-heading-m">What to do next</h2>
+
+      <p>
+        You can use our <a href="https://www.gov.uk/benefits-calculators" target="_blank">benefits calculator</a> to 
+        see if you might be eligible for any benefits you are not currently claiming.
+      </p>
+
+      {% include "includes/eligiblity-next-list.html" %}
+
+    </div>
+  </div>
+
+{% endblock %}

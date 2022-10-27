@@ -56,7 +56,7 @@ router.post('/bill-name-validate', function (req, res) {
 
   var name = req.session.data['name-on-bill']
 
-  if (name == "my name" || name == "my partner's name") {
+  if (name == "my name" || name == "my partner's name" || name === "My Department of Work and Pension's (DWP) Appointee") {
     res.redirect('/electricity-supplier')
   } if (name == "my landlord's name") {
     res.redirect('/ineligible-bill-name-landlord')
@@ -85,12 +85,12 @@ router.post('/benefits-validate', function (req, res) {
 
   if (data == "none") {
     res.redirect('/ineligible-benefits')
-  } if (data == "Savings Credit element of Pension Credit") {
-    res.redirect('/eligible-contact')
+  } if (data == "Pension Credit Guarantee Credit") {
+    res.redirect('/eligible-letter-wait')
   } else if ( checker(["Child Tax Credit", "Working Tax Credit"], data) ) {
     res.redirect('/household-occupants')
   } else {
-    res.redirect('/epc')
+    res.redirect('/property-type')
   }
 
 })
@@ -100,7 +100,7 @@ router.post('/income-validate', function (req, res) {
   var data = req.session.data['household-income']
 
   if (data <= 20000) {
-    res.redirect('/epc')
+    res.redirect('/property-type')
   } else {
     res.redirect('/ineligible-income')
   }
@@ -123,7 +123,7 @@ router.post('/property-type-validate', function (req, res) {
 
   var data = req.session.data['property-type']
 
-  if (data == "Park home") {
+  if (data == "Park (mobile) home") {
     res.redirect('/ineligible-property-parkhome')
   } else if (data == "Other") {
     res.redirect('/ineligible-property')
@@ -137,7 +137,7 @@ router.post('/answer-validate', function (req, res) {
 
   var data = req.session.data['property-type']
 
-  if (data == "Detached house") {
+  if (data == "Deatached house") {
     res.redirect('/eligible-unqualified')
   } else {
     res.redirect('/eligible-qualified')

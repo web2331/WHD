@@ -16,12 +16,10 @@
       {% from "govuk/components/panel/macro.njk" import govukPanel %}
 
       {{ govukPanel({
-        titleText: "You cannot claim the Warm Home Discount this year"
+        titleText: "You are not eligible for the Warm Home Discount this year"
       }) }}
 
-      <p>Unfortunately, you can only claim the Warm Home Discount if your name, or your partner's name, is on the electricity bill.</p>
-
-      <h2 class="govuk-heading-m">What to do next</h2>
+      <p>Your name, or your partner's name, must be on the electricity bill to receive this discount.</p>
 
       {% include "includes/eligiblity-next-list.html" %}
 

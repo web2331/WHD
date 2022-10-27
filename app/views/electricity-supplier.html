@@ -26,17 +26,11 @@
           }
         }) %}
 
-          {{ govukDetails({
-            open: false,
-            summaryText: "Why do we need to know the date?",
-            text: "The money is not paid to you - it's a one-off discount on your electricity bill, between October and March. If you have changed suppliers since 21 August 2022, your previous supplier will issue the refund directly."
-          }) }}
-
           {{ govukSelect({
             id: "electricity-supplier",
             name: "electricity-supplier",
             hint: {
-              text: 'Enter your energy supplier, if your energy supplier is not listed, select "My supplier is not listed"'
+              text: 'If your energy supplier is not listed, select "My supplier is not listed"'
             },
             items: [
               {

@@ -16,15 +16,22 @@
       <form class="form" action="/income-validate" method="post" novalidate data-validate="form-validation">
 
         {% from "govuk/components/input/macro.njk" import govukInput %}
+        {% from "govuk/components/fieldset/macro.njk" import govukFieldset %}
+
+        {% call govukFieldset({
+          legend: {
+            text: "At the time of your most recent tax credit renewal, what was your annual income?",
+            classes: "govuk-fieldset__legend--l",
+            isPageHeading: true
+          }
+        }) %}
 
         {{ govukInput({
+          label: {
+              text: "Annual income, in pounds"
+            },
           id: "household-income",
           name: "household-income",
-          label: {
-            text: "At the time of your most recent tax credit renewal, what was your annual income?",
-            classes: "govuk-label--l",
-            isPageHeading: true
-          },
           classes: "govuk-input--width-5",
           prefix: {
             html: "&pound;"
@@ -32,6 +39,8 @@
           spellcheck: false,
           value: data['household-income']
         }) }}
+
+        {% endcall %}
 
         <button class="govuk-button" data-module="govuk-button">Continue</button>
 

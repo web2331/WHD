@@ -17,7 +17,7 @@
 
         {% from "govuk/components/input/macro.njk" import govukInput %}
         {% from "govuk/components/fieldset/macro.njk" import govukFieldset %}
-        
+
         {% call govukFieldset({
           legend: {
             text: "How many people were living in your household on 21 August 2022?",
@@ -27,33 +27,42 @@
         }) %}
 
           {{ govukInput({
+            label: {
+                text: "Adults (16 and over, and not in full-time secondary education)"
+              },
             id: "household-size",
             name: "household-size[adult]",
             classes: "govuk-input--width-3",
             suffix: {
-              text: "Adults (16 and over, and not in full-time secondary education)"
+              text: "Adults"
             },
             spellcheck: false,
             value: data['household-size[adult]']
           }) }}
 
           {{ govukInput({
+            label: {
+                text: "Young people (19 and under, and in full-time secondary education)"
+              },
             id: "household-size",
             name: "household-size[young_people]",
             classes: "govuk-input--width-3",
             suffix: {
-              text: "Young people (19 and under, and in full-time secondary education)"
+              text: "Young people"
             },
             spellcheck: false,
             value: data['household-size[young_people]']
           }) }}
 
           {{ govukInput({
+            label: {
+                text: "Children (15 and under)"
+              },
             id: "household-size",
             name: "household-size[children]",
             classes: "govuk-input--width-3",
             suffix: {
-              text: "Children (15 and under)"
+              text: "Children"
             },
             spellcheck: false,
             value: data['household-size[children]']

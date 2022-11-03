@@ -29,7 +29,7 @@
           {{ govukInsetText({
             html: "<p>A partner is either:</p>
               <ul class=\"govuk-list govuk-list--bullet\">
-                <li>your husband, wife or civil partner - if you live with them</li> 
+                <li>your husband, wife or civil partner - if you live with them</li>
                 <li>someone you live with as a couple, without being married or in a civil partnership</li>
               </ul>"
           }) }}
@@ -39,34 +39,29 @@
             name: "name-on-bill",
             items: [
               {
-                value: "my name",
-                text: "My Name",
-                checked: checked("name-on-bill", "my name")
+                value: "your name",
+                text: "Your name",
+                checked: checked("name-on-bill", "your name")
               },
               {
-                value: "my partner's name",
-                text: "My partner's name",
-                checked: checked("name-on-bill", "my partner's name")
+                value: "your partner's name",
+                text: "Your partner's name",
+                checked: checked("name-on-bill", "your partner's name")
               },
               {
-                value: "my landlord's name",
-                text: "My landlord's name",
-                checked: checked("name-on-bill", "my landlord's name")
+                value: "your landlord's name",
+                text: "Your landlord's name",
+                checked: checked("name-on-bill", "your landlord's name")
               },
               {
-                value: "My Department of Work and Pension's (DWP) Appointee",
-                text: "My Department of Work and Pension's (DWP) Appointee",
-                checked: checked("name-on-bill", "My Department of Work and Pension's (DWP) Appointee")
-              }, 
+                value: "Someone who deals with the Department for Work and Pensions on your behalf (your ‘appointee’)",
+                text: "Someone who deals with the Department for Work and Pensions on your behalf (your ‘appointee’)",
+                checked: checked("name-on-bill", "Someone who deals with the Department for Work and Pensions on your behalf (your ‘appointee’)")
+              },
               {
                 value: "somebody-else",
                 text: "Somebody else's name",
                 checked: checked("name-on-bill", "somebody-else")
-              },
-              {
-                value: "dont-know",
-                text: "I don't know",
-                checked: checked("name-on-bill", "dont-know")
               }
             ]
           }) }}

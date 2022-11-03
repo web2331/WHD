@@ -21,13 +21,11 @@
 
         {% call govukFieldset({
           legend: {
-            text: "Letter reference",
+            text: "What are the first 5 digits of your letter’s reference code?",
             isPageHeading: true,
             classes: "govuk-fieldset__legend--l"
           }
         }) %}
-
-          <p>What are the first five characters of your letter's reference code?</p>
 
           {{ govukInsetText({
             text: "The reference code can be found in the top left-hand corner of your letter and begins with WHD."
@@ -73,8 +71,8 @@
                 divider: "or"
               },
               {
-                value: "dont-know",
-                text: "Don't know",
+                value: "I do not know",
+                text: "I do not know",
                 checked: checked("letter-ref", "dont-know")
               }
             ]
@@ -87,7 +85,7 @@
       </form>
 
       <script type="application/json" id="form-validation">
-        { 		
+        {
           "letter-ref": {
             "presence": {
               "message": "^Select the letter reference code printed on your letter"

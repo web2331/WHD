@@ -19,7 +19,7 @@
 
         {{ govukInput({
           id: "household-income",
-          name: "household-income",        
+          name: "household-income",
           label: {
             text: "At the time of your most recent tax credit renewal, what was your annual income?",
             classes: "govuk-label--l",
@@ -31,14 +31,14 @@
           },
           spellcheck: false,
           value: data['household-income']
-        }) }}      
-      
+        }) }}
+
         <button class="govuk-button" data-module="govuk-button">Continue</button>
 
       </form>
 
       <script type="application/json" id="form-validation">
-        { 		
+        {
           "household-income": {
             "presence": {
               "message": "^Enter your annual household income"

@@ -56,9 +56,9 @@ router.post('/bill-name-validate', function (req, res) {
 
   var name = req.session.data['name-on-bill']
 
-  if (name == "my name" || name == "my partner's name" || name === "My Department of Work and Pension's (DWP) Appointee") {
+  if (name == "your name" || name == "your partner's name" || name === "My Department of Work and Pension's (DWP) Appointee") {
     res.redirect('/electricity-supplier')
-  } if (name == "my landlord's name") {
+  } if (name == "your landlord's name") {
     res.redirect('/ineligible-bill-name-landlord')
   } else {
     res.redirect('/ineligible-bill-name')
@@ -85,7 +85,7 @@ router.post('/benefits-validate', function (req, res) {
 
   if (data == "none") {
     res.redirect('/ineligible-benefits')
-  } if (data == "Pension Credit Guarantee Credit") {
+  } if (data == "The ‘Guarantee Credit’ part of Pension Credit ") {
     res.redirect('/eligible-letter-wait')
   } else if ( checker(["Child Tax Credit", "Working Tax Credit"], data) ) {
     res.redirect('/household-occupants')

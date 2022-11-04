@@ -16,7 +16,7 @@
       <form class="form" action="/letter-validate" method="post" novalidate data-validate="form-validation">
 
         {% from "govuk/components/radios/macro.njk" import govukRadios %}
-      
+
         {{ govukRadios({
           idPrefix: "letter",
           name: "letter",
@@ -25,7 +25,7 @@
               text: "Have you already received a letter from the government about the Warm Home Discount?",
               isPageHeading: true,
               classes: "govuk-fieldset__legend--l"
-            }              
+            }
           },
           items: [
             {
@@ -40,7 +40,7 @@
             },
             {
               value: "I don't know",
-              text: "I don't know",
+              text: "I do not know",
               checked: checked("letter", "I don't know")
             }
           ]

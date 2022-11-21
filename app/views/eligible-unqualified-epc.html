@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-  Probably ineligible – {{ serviceName }}
+  Ineligible – {{ serviceName }}
 {% endblock %}
 
 {% block beforeContent %}
@@ -16,10 +16,12 @@
       {% from "govuk/components/panel/macro.njk" import govukPanel %}
 
       {{ govukPanel({
-        titleText: "You probably aren't eligible for the Warm Home Discount this year"
+        titleText: "You are not eligible for the Warm Home Discount this year"
       }) }}
 
-      <p>This is based on what you've told us about the property you lived in on 21 August 2022.</p>
+      <p>This is based on the type of property you lived in on 21 August 2022 according to your Energy Performance Certificate.</p>
+
+      <p>However, if you receive a letter that confirms that you are eligible, please follow the advice given in the letter. Letters are being sent out until mid-January.</p>
 
       <h2 class="govuk-heading-m">If you believe you might still be eligible</h2>
 

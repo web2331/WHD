@@ -1,0 +1,54 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Select address - {{ serviceName }}
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="/postcode-validate" method="post" novalidate data-validate="form-validation">
+
+        {% if postcodeResults %}
+
+          <h1 class="govuk-heading-l">Select your address</h1>
+          
+          <ul class="govuk-list govuk-list--spaced govuk-!-font-weight-bold">
+            {% for item in postcodeResults %}
+              <li><a href="/check-property-details?address={{ item.address | urlencode }}&propertyType={{ item.type | urlencode }}&propertySize={{ item.size | urlencode }}&propertyAge={{ item.age | urlencode }}" class="govuk-link">{{ item.address }}</a></li>
+            {% endfor %}            
+          </ul>
+        
+          <h3 class="govuk-heading-s">If your address is not listed</h3>
+
+          <p>
+            If your property does not appear on the list, there is no valid EPC for it.
+          </p>
+
+        {% else %}
+
+          <h1 class="govuk-heading-l mb-0">No results for {{ data['postcode'] }}</h1>
+          <p>We couldn't find an energy performance certificate for this postcode.</p>
+          
+        {% endif %}
+
+          <p>
+            You can <a href="/postcode">search again</a> or <a href="/property-type">enter your property details manually</a>.
+          </p>
+
+          <p>
+            You can also <a href="https://www.gov.uk/get-new-energy-certificate" target="_blank">get a new EPC</a>.
+          </p>          
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

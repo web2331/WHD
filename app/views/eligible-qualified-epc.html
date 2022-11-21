@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-  Eligible - {{ serviceName }}
+  Eligible, contat us - {{ serviceName }}
 {% endblock %}
 
 {% block beforeContent %}
@@ -16,17 +16,17 @@
       {% from "govuk/components/panel/macro.njk" import govukPanel %}
 
       {{ govukPanel({
-        titleText: "You are eligible for the Warm Home Discount Scheme this year"
+        titleText: "You are eligible for the Warm Home Discount this year"
       }) }}
 
       <p>
-        Because you receive the Pension Credit Guarantee Credit, you are eligible for this year's Warm Home Discount Scheme.
+        This is based on the information you’ve provided about the benefits you claim and the type of property you lived in on 21 August 2022 according to your Energy Performance Certificate.
       </p>
 
       <h2 class="govuk-heading-m">What happens next</h2>
 
       <p>
-        We will send letters to eligible households between November 2022 and mid-January 2023. You may automatically receive a letter.
+        We will send letters to eligible households between November 2022 and mid-January 2023. If you receive a letter, please follow any instruction in the letter.
       </p>
 
       <h2 class="govuk-heading-m">If you do not receive a letter</h2>

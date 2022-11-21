@@ -1,0 +1,73 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Postcode - {{ serviceName }}
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="/select-address" method="post" novalidate data-validate="form-validation">
+
+        {% from "govuk/components/input/macro.njk" import govukInput %}
+        {% from "govuk/components/fieldset/macro.njk" import govukFieldset %}
+
+        {% call govukFieldset({
+          legend: {
+            text: "What is the postcode of the property you were living in on 21 August 2022?",
+            classes: "govuk-fieldset__legend--l",
+            isPageHeading: true
+          }
+        }) %}
+
+          <p class="govuk-body">
+            We'll use your postcode to search the Energy Performance Certificates (EPCs) we have on record. 
+            Your EPC will tell us how efficient your home is.
+          </p>
+
+          {{ govukInput({
+            label: {
+              text: "Enter the postcode"
+            },
+            hint: {
+              text: "For example LS1 4AP"
+            },
+            id: "postcode",
+            name: "postcode",
+            classes: "govuk-input--width-10",
+            spellcheck: false,
+            value: data['postcode']
+          }) }}
+
+        {% endcall %}
+
+        <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+        <h3 class="govuk-heading-s">If you do not know the postcode</h3>
+
+        <p>
+           You can find a postcode on <a href="https://www.royalmail.com/find-a-postcode" target="_blank">Royal Mail's postcode finder</a>.
+        </p>
+
+      </form>
+
+      <script type="application/json" id="form-validation">
+        {
+          "postcode": {
+            "presence": {
+              "message": "^Enter the postcode"
+            }
+          }
+        }
+      </script>
+
+    </div>
+  </div>
+
+{% endblock %}

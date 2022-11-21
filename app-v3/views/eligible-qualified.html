@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-  Eligible - {{ serviceName }}
+  Probably eligible, contat us - {{ serviceName }}
 {% endblock %}
 
 {% block beforeContent %}
@@ -16,11 +16,12 @@
       {% from "govuk/components/panel/macro.njk" import govukPanel %}
 
       {{ govukPanel({
-        titleText: "You are eligible for the Warm Home Discount Scheme this year"
+        titleText: "Please wait for a letter"
       }) }}
 
       <p>
-        Because you receive the Pension Credit Guarantee Credit, you are eligible for this year's Warm Home Discount Scheme.
+        Based on the benefits you claim and the type of property you live in,
+        you are probably eligible for this year's Warm Home Discount Scheme.
       </p>
 
       <h2 class="govuk-heading-m">What happens next</h2>

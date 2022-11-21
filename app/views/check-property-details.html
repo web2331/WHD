@@ -1,0 +1,81 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Check property details - {{ serviceName }}
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+
+      <h1 class="govuk-heading-xl">Check your property details</h1>
+
+      <p class="govuk-body-m">If any of the details are incorrect click on 'change' and update them</p>
+
+      <h2 class="govuk-heading-m">{{ propertyDetails.address }}</h2>
+
+      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Property type
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ propertyDetails.type }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a href="/property-type">
+              Change
+              <span class="govuk-visually-hidden"> property type</span>
+            </a>
+          </dd>
+        </div>
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Property built
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ propertyDetails.age }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a href="/property-age">
+              Change
+              <span class="govuk-visually-hidden"> age of property</span>
+            </a>
+          </dd>
+        </div>
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Size of property
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ propertyDetails.size }} square meters
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a href="/property-size">
+              Change
+              <span class="govuk-visually-hidden"> size of property </span>
+            </a>
+          </dd>
+        </div>
+      </dl>
+
+      <form action="/check-answers" method="post" novalidate>
+
+        <input type="hidden" name="answers-checked" value="true">
+
+        <button type="submit" class="govuk-button" data-module="govuk-button">
+          Continue
+        </button>
+
+      </form>
+
+    </div>
+  </div>
+{% endblock %}

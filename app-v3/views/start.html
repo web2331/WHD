@@ -1,0 +1,139 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  {{ serviceName }}
+{% endblock %}
+
+{% block header %}
+  <!-- Blank header with no service name for the start page -->
+  {{ govukHeader() }}
+{% endblock %}
+
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">
+        Check if you are eligible for the Warm Home Discount Scheme (England and Wales)
+      </h1>
+
+      <p>
+        Most households eligible for the Warm Home Discount Scheme will automatically receive the discount from their electricity supplier.
+      </p>
+
+      <p>
+        If you are eligible, you will receive a notice letter from the government before the middle of January 2023.
+      </p>
+
+      <p>
+        Use this service to:
+      </p>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li>
+          check if you might be eligible for the Warm Home Discount Scheme
+        </li>
+        <li>
+          learn what to do if you believe you might be eligible for the discount, but have not been contacted by the government
+        </li>
+      </ul>
+
+      <p>
+        If you live in a park home, you will need to apply for the <a href="https://www.parkhomeswhd.com/" target="_blank"">Park Homes Warm Home Discount Scheme</a> instead.
+      </p>
+
+      <a href="/region" role="button" draggable="false" class="govuk-button govuk-button--start govuk-!-margin-top-2 govuk-!-margin-bottom-8"  data-module="govuk-button">
+        Start now
+        <svg class="govuk-button__start-icon" xmlns="http://www.w3.org/2000/svg" width="17.5" height="19" viewBox="0 0 33 40" aria-hidden="true" focusable="false">
+          <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z"></path>
+        </svg>
+      </a>
+
+      <h2 class="govuk-heading-m">What you need</h2>
+
+      <p>
+        You'll be asked about:
+      </p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>
+          your electricity supplier
+        </li>
+        <li>
+          any benefits you receive
+        </li>
+        <li>
+          your property
+        </li>
+      </ul>
+
+      <p>
+        You'll need to know the size and age of your property. This information can be found:
+      </p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>
+          on an Energy Performance Certificate (EPC)
+        </li>
+        <li>
+          on the <a href="https://epc.opendatacommunities.org/login" target="_blank">Energy Performance of Buildings Data website (opens in new tab)</a>
+        </li>
+        <li>
+          on documentation such as your tenancy agreement or insurance paperwork
+        </li>
+      </ul>
+
+    </div>
+
+    <div class="govuk-grid-column-one-third">
+
+      <aside class="app-related-items" role="complementary">
+        <h2 class="govuk-heading-m" id="subsection-title">
+          Related content
+        </h2>
+        <nav role="navigation" aria-labelledby="subsection-title">
+          <ul class="govuk-list govuk-!-font-size-16">
+
+            <li>
+              <a href="https://www.gov.uk/the-warm-home-discount-scheme" target="_blank">
+                Warm Home Discount Scheme
+              </a>
+            </li>
+            <li>
+              <a href="https://www.gov.uk/buy-sell-your-home/energy-performance-certificates" target="_blank">
+                Energy Performance Certificates
+              </a>
+            </li>
+            <li>
+              <a href="https://www.gov.uk/improve-energy-efficiency" target="_blank">
+                Find energy grants for your home (Help to Heat)
+              </a>
+            </li>
+            <li>
+              <a href="https://helpforhouseholds.campaign.gov.uk/help-with-your-bills/" target="_blank">
+                Help from your energy supplier: the Energy Company Obligation
+              </a>
+            </li>
+            <li>
+              <a href="#" target="_blank">
+                Boiler Upgrade Scheme
+              </a>
+            </li>
+            <li>
+              <a href="#" target="_blank">
+                Winter Fuel Payment
+              </a>
+            </li>
+            <li>
+              <a href="#" target="_blank">
+                Cold Weather Payment
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </aside>
+
+    </div>
+  </div>
+{% endblock %}

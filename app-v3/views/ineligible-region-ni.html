@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Ineligible due to location ({{ data['region'] }}) – {{ serviceName }}
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {% from "govuk/components/panel/macro.njk" import govukPanel %}
+
+      {{ govukPanel({
+        titleText: "The Warm Home Discount is not available to residents of Northern Ireland"
+      }) }}
+
+      <h2 class="govuk-heading-m">What to do next</h2>
+
+      <p>
+        You may be eligible for these schemes instead:
+      </p>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li>
+          <a href="https://www.nihe.gov.uk/Housing-Help/Affordable-Warmth-Boiler-Replacement" target="_blank">Affordable Warmth Scheme</a>
+          (a grant to make your property more energy efficient)
+        </li>
+        <li>
+          <a href="https://www.nihe.gov.uk/Housing-Help/Affordable-Warmth-Boiler-Replacement/Boiler-replacement-Scheme" target="_blank">Boiler Replacement Scheme</a>
+          (help with the cost of replacing certain boilers over 15 years old)
+        </li>
+      </ul>
+
+      {% include "includes/eligiblity-next-list.html" %}
+
+    </div>
+  </div>
+
+{% endblock %}

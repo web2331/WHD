@@ -17,34 +17,47 @@
 
         {% if postcodeResults %}
 
-          <h1 class="govuk-heading-l">Select your address</h1>
-          
-          <ul class="govuk-list govuk-list--spaced govuk-!-font-weight-bold">
+          <h1 class="govuk-heading-l">Results for {{ data['postcode'] }}</h1>
+
+          <p>
+            <a href="/postcode">Change postcode</a>
+          </p>
+
+          <p>There are energy performance certificates (EPCs) for the following properties:</p>
+
+          <ul class="govuk-list govuk-list--spaced govuk">
             {% for item in postcodeResults %}
               <li><a href="/check-property-details?address={{ item.address | urlencode }}&propertyType={{ item.type | urlencode }}&propertySize={{ item.size | urlencode }}&propertyAge={{ item.age | urlencode }}" class="govuk-link">{{ item.address }}</a></li>
-            {% endfor %}            
+            {% endfor %}
           </ul>
-        
+
           <h3 class="govuk-heading-s">If your address is not listed</h3>
 
           <p>
-            If your property does not appear on the list, there is no valid EPC for it.
+            If a neighbouring property is identical to your home, you can select their address to continue.
+          </p>
+
+          <p>
+            If the listed properties are not the same as yours, you can<a href="/property-type">enter your property details manually</a>.
           </p>
 
         {% else %}
 
           <h1 class="govuk-heading-l mb-0">No results for {{ data['postcode'] }}</h1>
-          <p>We couldn't find an energy performance certificate for this postcode.</p>
-          
-        {% endif %}
 
           <p>
-            You can <a href="/postcode">search again</a> or <a href="/property-type">enter your property details manually</a>.
+            <a href="/postcode">Change postcode</a>
           </p>
 
+          <p>There are no properties with an energy performance certificate (EPC) in this postcode.</p>
+
           <p>
-            You can also <a href="https://www.gov.uk/get-new-energy-certificate" target="_blank">get a new EPC</a>.
-          </p>          
+          <a href="/property-type">Enter your property details manually</a>.
+          </p>
+
+        {% endif %}
+
+
 
       </form>
 

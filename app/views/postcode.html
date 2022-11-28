@@ -17,18 +17,18 @@
 
         {% from "govuk/components/input/macro.njk" import govukInput %}
         {% from "govuk/components/fieldset/macro.njk" import govukFieldset %}
+        {% from "govuk/components/details/macro.njk" import govukDetails %}
 
         {% call govukFieldset({
           legend: {
-            text: "What is the postcode of the property you were living in on 21 August 2022?",
+            text: "Enter the postcode of the property you were living in on 21 August 2022",
             classes: "govuk-fieldset__legend--l",
             isPageHeading: true
           }
         }) %}
 
           <p class="govuk-body">
-            We'll use your postcode to search the Energy Performance Certificates (EPCs) we have on record. 
-            Your EPC will tell us how efficient your home is.
+            We’ll use your postcode to search for your energy performance certificate (EPC). Your EPC will tell us about the type, age and size of your property.
           </p>
 
           {{ govukInput({
@@ -47,13 +47,17 @@
 
         {% endcall %}
 
-        <button class="govuk-button" data-module="govuk-button">Continue</button>
 
-        <h3 class="govuk-heading-s">If you do not know the postcode</h3>
+        {{ govukDetails({
+          open: false,
+          summaryText: "If you do not know your postcode ",
+          html: "
+            <p>Find your postcode using
+            <a href=\"https://www.royalmail.com/find-a-postcode\" target=\"_blank\">Royal Mail's postcode finder (opens in new tab)</a>.</p>
+          "
+        }) }}
 
-        <p>
-           You can find a postcode on <a href="https://www.royalmail.com/find-a-postcode" target="_blank">Royal Mail's postcode finder</a>.
-        </p>
+        <button class="govuk-button" data-module="govuk-button">Find my address</button>
 
       </form>
 
